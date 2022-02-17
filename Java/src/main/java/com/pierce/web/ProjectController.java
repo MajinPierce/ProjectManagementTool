@@ -5,6 +5,7 @@ import java.security.Principal;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -54,6 +55,7 @@ public class ProjectController {
 	
 	
 	@GetMapping("/{projectId}")
+	@Cacheable(value = "projects", key = "#projectId")
 	@Operation(summary = "Get a specific project", responses = {
             @ApiResponse(description = "Get project success", responseCode = "200",
                     content = @Content(mediaType = "application/json",schema = @Schema(implementation = Project.class))),

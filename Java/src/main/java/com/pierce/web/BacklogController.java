@@ -5,6 +5,7 @@ import java.security.Principal;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -54,6 +55,7 @@ public class BacklogController {
 	
 	
 	@GetMapping("/{backlog_id}")
+	@Cacheable(value = "backlogs", key = "#backlog_id")
 	@Operation(summary = "Get project backlog")
 	public Iterable<ProjectTask> getProjectBacklog(@PathVariable String backlog_id, Principal principal){
 
@@ -61,6 +63,7 @@ public class BacklogController {
     }
 	
 	@GetMapping("/{backlog_id}/{pt_id}")
+	@Cacheable(value = "tasks", key = "#pt_id")
 	@Operation(summary = "Get project task")
 	public ResponseEntity<?> getProjectTask(@PathVariable String backlog_id, @PathVariable String pt_id, Principal principal){
 		
