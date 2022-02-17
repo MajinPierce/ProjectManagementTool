@@ -14,7 +14,6 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 
 @SpringBootApplication
-@EnableCaching
 public class ProjectManagementToolApplication {
 
 	public static void main(String[] args) {
@@ -35,13 +34,4 @@ public class ProjectManagementToolApplication {
         return info;
     }
 
-    @Bean
-    public CacheManager cacheManager() {
-        SimpleCacheManager cacheManager = new SimpleCacheManager();
-        cacheManager.setCaches(Arrays.asList(
-          new ConcurrentMapCache("backlogs"), 
-          new ConcurrentMapCache("tasks"),
-          new ConcurrentMapCache("projects")));
-        return cacheManager;
-    }
 }
