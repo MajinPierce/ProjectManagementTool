@@ -1,16 +1,21 @@
 package com.pierce.domain;
 
+
 import java.util.Date;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Project {
+    //Logger logger = LogManager.getLogger(Project.class);
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

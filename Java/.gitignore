@@ -34,3 +34,6 @@ build/
 
 ### EHCache ###
 spring-boot-ehcache/
+
+### Log4j2 ###
+logs/
