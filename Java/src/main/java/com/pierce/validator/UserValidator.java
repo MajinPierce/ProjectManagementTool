@@ -1,5 +1,7 @@
 package com.pierce.validator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -8,6 +10,8 @@ import com.pierce.domain.User;
 
 @Component
 public class UserValidator implements Validator {
+   // Logger logger = LogManager.getLogger(UserValidator.class);
+
 
     @Override
     public boolean supports(Class<?> aClass) {
