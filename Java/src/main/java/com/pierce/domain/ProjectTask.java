@@ -1,24 +1,15 @@
 package com.pierce.domain;
 
-import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.validation.constraints.NotBlank;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 @Entity
+@Data
 public class ProjectTask {
 
 	@Id
@@ -39,7 +30,6 @@ public class ProjectTask {
     @JoinColumn(name = "backlog_id", updatable = false, nullable = false)
     @JsonIgnore
     private Backlog backlog;
-    
     @Column(updatable = false)
     private String projectIdentifier;
     @JsonFormat(pattern="yyyy-mm-dd")
@@ -47,12 +37,8 @@ public class ProjectTask {
     private Date createAt;
     @JsonFormat(pattern="yyyy-mm-dd")
     private Date updateAt;
-    
-    
-    
-    public ProjectTask() {
-    	
-    }
+
+    public ProjectTask() {}
     
 	@PrePersist
     protected void onCreate(){
@@ -80,93 +66,6 @@ public class ProjectTask {
                 '}';
     }
 
-	public Long getId() {
-		return this.id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getProjectSequence() {
-		return this.projectSequence;
-	}
-
-	public void setProjectSequence(String projectSequence) {
-		this.projectSequence = projectSequence;
-	}
-
-	public String getSummary() {
-		return this.summary;
-	}
-
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-
-	public String getAcceptanceCriteria() {
-		return this.acceptanceCriteria;
-	}
-
-	public void setAcceptanceCriteria(String acceptanceCriteria) {
-		this.acceptanceCriteria = acceptanceCriteria;
-	}
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Integer getPriority() {
-		return this.priority;
-	}
-
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
-
-	public Date getDueDate() {
-		return this.dueDate;
-	}
-
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
-	}
-
-	public String getProjectIdentifier() {
-		return this.projectIdentifier;
-	}
-
-	public void setProjectIdentifier(String projectIdentifier) {
-		this.projectIdentifier = projectIdentifier;
-	}
-
-	public Date getCreateAt() {
-		return this.createAt;
-	}
-
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
-	}
-
-	public Date getUpdateAt() {
-		return this.updateAt;
-	}
-
-	public void setUpdateAt(Date updateAt) {
-		this.updateAt = updateAt;
-	}
-
-	public Backlog getBacklog() {
-		return this.backlog;
-	}
-
-	public void setBacklog(Backlog backlog) {
-		this.backlog = backlog;
-	}
-    
     
 }
