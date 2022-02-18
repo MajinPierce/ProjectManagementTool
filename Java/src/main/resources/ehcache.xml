@@ -1,0 +1,22 @@
+<config
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns='http://www.ehcache.org/v3'
+        xsi:schemaLocation="
+            http://www.ehcache.org/v3 
+            http://www.ehcache.org/schema/ehcache-core-3.7.xsd">
+    <!-- – Persistent cache directory -->
+    <persistence directory="spring-boot-ehcache/cache" />
+    <!-- – Default cache template – -->
+    <cache-template name="default">
+        <expiry>
+            <ttl unit="seconds">60</ttl>
+        </expiry>
+        <resources>
+            <heap>1000</heap>
+        </resources>
+    </cache-template>
+    <!-- – Cache configuration – -->
+    <cache alias="backlogs" uses-template="default"></cache>
+    <cache alias="projects" uses-template="default"></cache>
+    <cache alias="tasks" uses-template="default"></cache>
+</config>

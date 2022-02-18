@@ -13,6 +13,7 @@ import static com.pierce.security.SecurityConstants.SECRET;
 import com.pierce.domain.User;
 
 import io.jsonwebtoken.*;
+import lombok.extern.log4j.Log4j2;
 
 @Component
 public class JwtTokenProvider {
