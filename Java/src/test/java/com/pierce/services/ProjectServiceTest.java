@@ -44,6 +44,7 @@ class ProjectServiceTest {
 
     @Test
     void testSaveOrUpdateProject() {
+        // create new project and set properties, set owner to uninitialized user
         Project project = new Project();
         project.setBacklog(new Backlog());
         LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -61,6 +62,7 @@ class ProjectServiceTest {
         project.setUpdatedAt(Date.from(atStartOfDayResult3.atZone(ZoneId.of("UTC")).toInstant()));
         project.setUser(new User());
 
+        // create new backlog, set properties, assign to project
         Backlog backlog = new Backlog();
         backlog.setId(123L);
         backlog.setPTSequence(1);
@@ -68,6 +70,7 @@ class ProjectServiceTest {
         backlog.setProjectIdentifier("myproject");
         backlog.setProjectTasks(new ArrayList<>());
 
+        // create new user, set properties
         User user = new User();
         user.setConfirmPassword("iloveyou");
         LocalDateTime atStartOfDayResult4 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -80,6 +83,7 @@ class ProjectServiceTest {
         user.setUpdatedAt(Date.from(atStartOfDayResult5.atZone(ZoneId.of("UTC")).toInstant()));
         user.setUsername("janedoe");
 
+        // create another project and set properties, set owner to user
         Project project1 = new Project();
         project1.setBacklog(backlog);
         LocalDateTime atStartOfDayResult6 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -97,6 +101,7 @@ class ProjectServiceTest {
         project1.setUpdatedAt(Date.from(atStartOfDayResult9.atZone(ZoneId.of("UTC")).toInstant()));
         project1.setUser(user);
 
+        // create backlog for project1
         Backlog backlog1 = new Backlog();
         backlog1.setId(123L);
         backlog1.setPTSequence(1);
@@ -104,6 +109,7 @@ class ProjectServiceTest {
         backlog1.setProjectIdentifier("myproject");
         backlog1.setProjectTasks(new ArrayList<>());
 
+        // create another user
         User user1 = new User();
         user1.setConfirmPassword("iloveyou");
         LocalDateTime atStartOfDayResult10 = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -305,6 +311,9 @@ class ProjectServiceTest {
         verify(this.projectRepository).findByProjectIdentifier((String) any());
     }
 
+    // test find all projects
+    // make call by random username to mock project repo
+    // return mock iterable upon success and verify
     @Test
     void testFindAllProjects() {
         when(this.projectRepository.findAllByProjectLeader((String) any()))
@@ -313,6 +322,9 @@ class ProjectServiceTest {
         verify(this.projectRepository).findAllByProjectLeader((String) any());
     }
 
+    // test find all projects
+    // make call by random username to mock project repo
+    // throw project not found exception and verify
     @Test
     void testFindAllProjects2() {
         when(this.projectRepository.findAllByProjectLeader((String) any()))
