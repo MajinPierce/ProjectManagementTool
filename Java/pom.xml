@@ -129,14 +129,14 @@
 					<runtime>
 						<os>Linux</os>
 						<javaVersion>Java 8</javaVersion>
-						<webContainer>Tomcat 9.0</webContainer>
+						<webContainer>Java SE</webContainer>
 					</runtime>
 					<deployment>
 						<resources>
 							<resource>
 								<directory>${project.basedir}/target</directory>
 								<includes>
-									<include>*.war</include>
+									<include>*.jar</include>
 								</includes>
 							</resource>
 							<resource>
