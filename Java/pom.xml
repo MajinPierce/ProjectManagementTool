@@ -115,6 +115,41 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-webapp-maven-plugin</artifactId>
+				<version>2.2.0</version>
+				<configuration>
+					<schemaVersion>v2</schemaVersion>
+					<subscriptionId>e3a8688e-7c1e-4db8-986f-eae5b34b6018</subscriptionId>
+					<resourceGroup>cloud-shell-storage-eastus</resourceGroup>
+					<appName>ProjectManagementTool</appName>
+					<pricingTier>B1</pricingTier>
+					<region>East US</region>
+					<runtime>
+						<os>Linux</os>
+						<javaVersion>Java 8</javaVersion>
+						<webContainer>Tomcat 9.0</webContainer>
+					</runtime>
+					<deployment>
+						<resources>
+							<resource>
+								<directory>${project.basedir}/target</directory>
+								<includes>
+									<include>*.war</include>
+								</includes>
+							</resource>
+							<resource>
+								<directory>${project.basedir}</directory>
+								<targetPath>/</targetPath>
+								<includes>
+									<include>web.config</include>
+								</includes>
+							</resource>
+						</resources>
+					</deployment>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
