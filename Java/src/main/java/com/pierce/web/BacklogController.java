@@ -5,6 +5,7 @@ import java.security.Principal;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,7 @@ public class BacklogController {
 	
 	@PostMapping("/{backlog_id}")
 	@Operation(summary = "Add project task to backlog")
+	@CacheEvict(cacheNames={"backlogs"}, allEntries = true)
     public ResponseEntity<?> addPTtoBacklog(@Valid @RequestBody ProjectTask newProjectTask, 
     										BindingResult result, @PathVariable String backlog_id, Principal principal){
 
@@ -74,6 +76,7 @@ public class BacklogController {
 	
 	@PatchMapping("/{backlog_id}/{pt_id}")
 	@Operation(summary = "Update a specific project task")
+	@CacheEvict(cacheNames={"tasks", "backlogs"}, allEntries = true)
     public ResponseEntity<?> updateProjectTask(@Valid @RequestBody ProjectTask projectTask, BindingResult result,
                                                @PathVariable String backlog_id, @PathVariable String pt_id, Principal principal){
 
@@ -89,6 +92,7 @@ public class BacklogController {
 	
 	@DeleteMapping("/{backlog_id}/{pt_id}")
 	@Operation(summary = "Delete a project task")
+	@CacheEvict(cacheNames={"tasks", "backlogs"}, allEntries = true)
     public ResponseEntity<?> deleteProjectTask(@PathVariable String backlog_id, @PathVariable String pt_id, Principal principal){
 		
         projectTaskService.deletePTByProjectSequence(backlog_id, pt_id, principal.getName());

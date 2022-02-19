@@ -5,6 +5,7 @@ import java.security.Principal;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +45,7 @@ public class ProjectController {
 	
 	@PostMapping("")
 	@Operation(summary = "Create a new project")
+	@CacheEvict(cacheNames={"projects"}, allEntries = true)
     public ResponseEntity<?> createNewProject(@Valid @RequestBody Project newProject, BindingResult result, Principal principal){
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
@@ -80,6 +82,7 @@ public class ProjectController {
 	
 	@DeleteMapping("/{projectId}")
 	@Operation(summary = "Delete a project")
+	@CacheEvict(cacheNames={"projects"}, allEntries = true)
 	public ResponseEntity<?> deleteProject(@PathVariable String projectId, Principal principal){
 		
 		projectService.deleteProjectByIdentifier(projectId.toUpperCase(), principal.getName());
