@@ -20,34 +20,42 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '8'
+          
+      - name: maven build, clean
+        run: mvn clean package  
 
       - name: Build with Maven
         run: mvn -f '${{ github.workspace }}/Java' azure-webapp:deploy
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        
+      - name: Login via Azure CLI
+        uses: azure/login@v1
         with:
-          name: java-app
-          path: '${{ github.workspace }}/Java/target/*.jar'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+#       - name: Upload artifact for deployment job
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: java-app
+#           path: '${{ github.workspace }}/Java/target/*.jar'
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: java-app
+#   deploy:
+#     runs-on: ubuntu-latest
+#     needs: build
+#     environment:
+#       name: 'Production'
+#       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'ProjectManagementTool'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_52C5C676EC224EEFB984A8D1F5BF94E2 }}
-          package: '*.jar'
+#     steps:
+#       - name: Download artifact from build job
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: java-app
+
+#       - name: Deploy to Azure Web App
+#         id: deploy-to-webapp
+#         uses: azure/webapps-deploy@v2
+#         with:
+#           app-name: 'ProjectManagementTool'
+#           slot-name: 'Production'
+#           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_52C5C676EC224EEFB984A8D1F5BF94E2 }}
+#           package: '*.jar'
