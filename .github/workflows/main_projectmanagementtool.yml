@@ -23,6 +23,8 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        with:
+          path: '${{ github.workspace }}/Java
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
