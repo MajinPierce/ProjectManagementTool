@@ -20,9 +20,18 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '8'
+          
+      - name: maven build, clean
+        run: mvn -f '${{ github.workspace }}/Java' clean package
+        
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Build with Maven
-        run: mvn -f '${{ github.workspace }}/Java' package azure-webapp:deploy
+        run: mvn -f '${{ github.workspace }}/Java' azure-webapp:deploy
+      
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
