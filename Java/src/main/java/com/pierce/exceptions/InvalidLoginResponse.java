@@ -9,7 +9,6 @@ public class InvalidLoginResponse {
 	private String password;
 	
 	public InvalidLoginResponse() {
-		System.out.println("**********************************************************************************");
 		log.warn("This is coming from the Invalid Username Class");
 		this.username = "Invalid Username";
 		this.password = "Invalid Password";

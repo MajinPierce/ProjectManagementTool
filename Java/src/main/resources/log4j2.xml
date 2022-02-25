@@ -26,13 +26,13 @@
 
     <Loggers>
         <!-- LOG everything at INFO level -->
-        <Root level="debug">
+        <Root level="warn">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
         </Root>
 
         <!-- LOG "com.baeldung*" at TRACE level -->
-        <Logger name="com.pierce" level="debug"></Logger>
+        <Logger name="com.pierce" level="warn"></Logger>
     </Loggers>
 
 </Configuration>
