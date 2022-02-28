@@ -49,7 +49,7 @@ public class ProjectTaskService {
 			
 		//default project status
 		//enum statuses maybe later
-		if(projectTask.getStatus() == "" || projectTask.getStatus() == null) {
+		if(projectTask.getStatus().equals("") || projectTask.getStatus() == null) {
 			projectTask.setStatus("TO_DO");
 		}
 			
