@@ -15,4 +15,11 @@
 ## Technologies
 
 ## Screenshots
-![Alt text](/img/ppmt-landing.png?raw=true "Landing Page")
+Landing Page
+![Alt text](/img/projectmanagementtool.app.png?raw=true "Landing Page")
+
+Dashboard
+![Alt text](/img/projectmanagementtool.app.png?raw=true "Dashboard")
+
+Project Tasks
+![Alt text](/img/projectmanagementtool.app.png?raw=true "Project Tasks")
