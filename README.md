@@ -19,7 +19,7 @@ Landing Page
 ![Alt text](/img/projectmanagementtool.app.png?raw=true "Landing Page")
 
 Dashboard
-![Alt text](/img/projectmanagementtool.app.png?raw=true "Dashboard")
+![Alt text](/img/projectmanagementtool.app_dashboard.png?raw=true "Dashboard")
 
 Project Tasks
-![Alt text](/img/projectmanagementtool.app.png?raw=true "Project Tasks")
+![Alt text](/img/projectmanagementtool.app_projectBoard.png?raw=true "Project Tasks")
