@@ -1,2 +1,2 @@
 
-![example workflow](https://github.com/MajinPierce/ProjectManagementTool-Heroku/actions/workflows/main_projectmanagementtool.yml/badge.svg)
+![workflow](https://github.com/MajinPierce/ProjectManagementTool-Heroku/actions/workflows/main_projectmanagementtool.yml/badge.svg?event=push)
