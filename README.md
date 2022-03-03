@@ -14,7 +14,7 @@
 
 ## Technologies
 
-* Backend
+* __Backend__
   * MySQL
   * Spring Boot
     * Spring Data JPA
@@ -23,14 +23,14 @@
     * Log4j2
     * JWT
     * Spring Security
-* Frontend
+* __Frontend__
   * React
     * React developer's tools for Chrome
   * Redux
     * Redux developer's tools for Chrome
   * Bootstrap
   * Axios
-* DevOps
+* __DevOps__
   * Swagger
   * JaCoCo
   * SonarQube
