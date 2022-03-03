@@ -14,12 +14,38 @@
 
 ## Technologies
 
+* Backend
+  * MySQL
+  * Spring Boot
+    * Spring Data JPA
+    * Project Lombok
+    * EHCache
+    * Log4j2
+    * JWT
+    * Spring Security
+* Frontend
+  * React
+    * React developer's tools for Chrome
+  * Redux
+    * Redux developer's tools for Chrome
+  * Bootstrap
+  * Axios
+* DevOps
+  * Swagger
+  * JaCoCo
+  * SonarQube
+  * Azure
+    * App Services
+      * Azure managed SSL certificate
+    * Azure Database for MySQL
+  * Github Actions build/deploy pipeline
+
 ## Screenshots
-Landing Page
+#### Landing Page
 ![Alt text](/img/projectmanagementtool.app.png?raw=true "Landing Page")
 
-Dashboard
+#### Dashboard
 ![Alt text](/img/projectmanagementtool.app_dashboard.png?raw=true "Dashboard")
 
-Project Tasks
+#### Project Tasks
 ![Alt text](/img/projectmanagementtool.app_projectBoard.png?raw=true "Project Tasks")
