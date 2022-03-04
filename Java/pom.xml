@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pierce</groupId>
-	<artifactId>ProjectManagementTool-Heroku</artifactId>
+	<artifactId>ProjectManagementTool</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
-	<name>ProjectManagementTool-Heroku</name>
+	<name>ProjectManagementTool</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
