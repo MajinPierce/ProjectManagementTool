@@ -16,6 +16,8 @@ This project is a personal project management application. It allows a user to c
 
 It was created to help learn about full stack web development concepts such as Spring Boot, React, etc, as well as basic DevOps tasks associated with testing and deploying an application to the web.
 
+All java source code can be seen in the Java folder, and dependencies are contained in the maven pom.xml file. The application.properties file is missing the datasource information to connect to the database and the SecurityConstants.java class is missing the secret needed to encrypt passwords, as they are set in the environment variables on Azure for security reasons. The frontend source code and styling is contained in the React folder. Various screenshots of the application can be seen in the img folder. The CI/CD workflow pipeline yaml file that runs through Github Actions is contained in the .github/workflows folder.
+
 The current version can be seen at: [projectmanagementtool.app](https://projectmanagementtool.app/)
 
 ## Technologies
