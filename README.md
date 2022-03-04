@@ -12,7 +12,7 @@
 
 ## Description
 
-This project is a personal project management application. It allows a user to create an account, login, create and manage projects and their repective project tasks, along with the information pertaining to these projects and tasks. 
+This project is a personal project management application. It allows a user to create an account, login, create and manage projects and their repective project tasks, along with the information pertaining to these projects and tasks.
 
 It was created to help learn about full stack web development concepts such as Spring Boot, React, etc, as well as basic DevOps tasks associated with testing and deploying an application to the web.
 
