@@ -16,6 +16,8 @@ This project is a personal project management application. It allows a user to c
 
 It was created to help learn about full stack web development concepts such as Spring Boot, React, and basic DevOp tasks associated with testing and deploying an application to the web.
 
+The current version can be seen at: [projectmanagementtool.app](https://projectmanagementtool.app/)
+
 ## Technologies
 
 * __Backend__
